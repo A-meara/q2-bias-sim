@@ -13,6 +13,16 @@ A [QIIME 2](https://qiime2.org) plugin for applying realistic measurement biases
 | `apply-bias-pipeline` | Pipeline | Chain any combination of the above steps in one command |
 | `summarize-bias` | Visualizer | Side-by-side heatmaps and scatter plot showing before/after bias effect |
 
+## Outputs
+
+All methods take and return `FeatureTable[RelativeFrequency]` (proportions). Apply bias steps in any order, then use `resample-counts` to convert back to integer counts:
+
+- `multiplicative-bias` → `FeatureTable[RelativeFrequency]`
+- `detection-threshold` → `FeatureTable[RelativeFrequency]`
+- `contamination` → `FeatureTable[RelativeFrequency]`
+- `resample-counts` → `FeatureTable[Frequency]`
+- `apply-bias-pipeline` → `FeatureTable[RelativeFrequency]`
+
 ## Installation
 
 ```bash
